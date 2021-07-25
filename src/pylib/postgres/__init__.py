@@ -1,6 +1,9 @@
 from psycopg2.pool import SimpleConnectionPool
 from contextlib import contextmanager
 import os
+from os import path
+
+migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
 
 
 class Postgres:
@@ -33,7 +36,7 @@ class Postgres:
     @classmethod
     def migrate(cls, mode):
         with cls.repo() as cursor:
-            for root, dirs, files in os.walk('migrations'):
+            for root, dirs, files in os.walk(migrations_dir):
                 for file in files:
                     if file.endswith(f'.{mode}.sql'):
                         cursor.execute(open(os.path.join(root, file)).read())
