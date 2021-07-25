@@ -5,5 +5,5 @@ install:
 
 generate:
 	python -m grpc_tools.protoc -I proto \
-		--python_out=src/pylib/proto --grpc_python_out=src/pylib/proto \
+		--python_out=pylib/proto --grpc_python_out=pylib/proto \
 		proto/*.proto

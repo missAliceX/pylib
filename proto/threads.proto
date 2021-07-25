@@ -43,7 +43,8 @@ message GetSubThreadsResponse {
 
 message UpdateThreadsRequest {
     uint64 thread_id = 1;
-    string message = 2;
+    int32 thread_type = 2;
+    string message = 3;
 }
 
 message UpdateThreadsResponse {}
