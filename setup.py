@@ -10,6 +10,6 @@ setup(name='pylib',
       author='Alice Xia',
       author_email='miss.alice.xia@gmail.com',
       url='https://github.com/missAliceXia/pylib/',
-      packages=find_packages(where='src'),
+      packages=find_packages(where='pylib'),
       install_requires=requirements
       )
