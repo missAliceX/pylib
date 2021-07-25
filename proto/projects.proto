@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "threads.proto";
+
+service ProjectsService {
+    rpc GetProjects (GetProjectsRequest) returns (GetProjectsResponse);
+    rpc GetProjectDetails (GetProjectDetailsRequest) returns (GetProjectDetailsResponse);
+    rpc UpdateProjectDetails (UpdateProjectDetailsRequest) returns (UpdateProjectDetailsResponse);
+}
+
+message Project {
+    uint64 project_id = 1;
+    string project_name = 2;
+    string tagline = 3;
+    repeated Thread threads = 4;
+    repeated string tags = 5;
+    google.protobuf.Timestamp created_at = 6;
+}
+
+message GetProjectsRequest {
+    int32 limit = 1;
+}
+
+message GetProjectsResponse {
+    repeated Project projects = 1;
+}
+
+message GetProjectDetailsRequest {
+    uint64 project_id = 1;
+}
+
+message GetProjectDetailsResponse {
+    Project project = 1;
+}
+
+message UpdateProjectDetailsRequest {
+    Project project = 1;
+}
+
+message UpdateProjectDetailsResponse {}

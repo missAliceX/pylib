@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+enum ThreadType {
+    COMMENT = 0;
+    SOLUTION = 1;
+    PROBLEM = 2;
+}
+
+message Thread {
+    uint64 thread_id = 1;
+    uint64 project_id = 2;
+    int32 thread_type = 3;
+    string message = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+service ThreadsService {
+    rpc GetProjectThreads (GetProjectThreadsRequest) returns (GetProjectThreadsResponse);
+    rpc GetSubThreads (GetSubThreadsRequest) returns (GetSubThreadsResponse);
+    rpc UpdateThreads (UpdateThreadsRequest) returns (UpdateThreadsResponse);
+}
+
+message GetProjectThreadsRequest {
+    uint64 project_id = 1;
+    int32 limit = 2;
+}
+
+message GetProjectThreadsResponse {
+    repeated Thread threads = 1;
+}
+
+message GetSubThreadsRequest {
+    uint64 project_id = 1;
+    uint64 thread_id = 2;
+    int32 limit = 3;
+}
+
+message GetSubThreadsResponse {
+    repeated Thread threads = 1;
+}
+
+message UpdateThreadsRequest {
+    uint64 thread_id = 1;
+    string message = 2;
+}
+
+message UpdateThreadsResponse {}
