@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 with open('requirements.txt') as f:
-    requirements = f.readlines()
+    requirements = f.read().splitlines()
 
 setup(name='pylib',
       version='0.0.1',
@@ -11,5 +11,4 @@ setup(name='pylib',
       author_email='miss.alice.xia@gmail.com',
       url='https://github.com/missAliceXia/pylib/',
       packages=find_packages(where='pylib'),
-      install_requires=requirements
-      )
+      install_requires=requirements)
