@@ -42,7 +42,8 @@ message GetSubThreadsResponse {
 }
 
 message UpdateThreadsRequest {
-    repeated Thread threads = 1;
+    uint64 project_id = 1;
+    repeated Thread threads = 2;
 }
 
 message UpdateThreadsResponse {}
