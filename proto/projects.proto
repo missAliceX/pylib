@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package pylib.proto.projects;
+
 import "google/protobuf/timestamp.proto";
 import "threads.proto";
 

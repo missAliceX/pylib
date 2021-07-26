@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package pylib.proto.threads;
+
 import "google/protobuf/timestamp.proto";
 
 enum ThreadType {
