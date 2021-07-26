@@ -1,9 +1,9 @@
-import futures
+from concurrent.futures import ThreadPoolExecutor
 import grpc
 
 class GRPCService:
     def __init__(self, register, ServiceClass):
-        self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+        self.server = grpc.server(ThreadPoolExecutor(max_workers=10))
         register(ServiceClass(), self.server)
 
     def start(self, register, ServiceClass):
