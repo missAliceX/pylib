@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from . import threads_pb2 as threads__pb2
 
 
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprojects.proto\x1a\rthreads.proto\"\x80\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12\x18\n\x07threads\x18\x04 \x03(\x0b\x32\x07.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12\x12\n\ncreated_at\x18\x06 \x01(\x04\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"1\n\x13GetProjectsResponse\x12\x1a\n\x08projects\x18\x01 \x03(\x0b\x32\x08.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"6\n\x19GetProjectDetailsResponse\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"8\n\x1bUpdateProjectDetailsRequest\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xec\x01\n\x0fProjectsService\x12\x38\n\x0bGetProjects\x12\x13.GetProjectsRequest\x1a\x14.GetProjectsResponse\x12J\n\x11GetProjectDetails\x12\x19.GetProjectDetailsRequest\x1a\x1a.GetProjectDetailsResponse\x12S\n\x14UpdateProjectDetails\x12\x1c.UpdateProjectDetailsRequest\x1a\x1d.UpdateProjectDetailsResponseb\x06proto3'
+  serialized_pb=b'\n\x0eprojects.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\rthreads.proto\"\x9c\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12\x18\n\x07threads\x18\x04 \x03(\x0b\x32\x07.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"1\n\x13GetProjectsResponse\x12\x1a\n\x08projects\x18\x01 \x03(\x0b\x32\x08.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"6\n\x19GetProjectDetailsResponse\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"8\n\x1bUpdateProjectDetailsRequest\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xec\x01\n\x0fProjectsService\x12\x38\n\x0bGetProjects\x12\x13.GetProjectsRequest\x1a\x14.GetProjectsResponse\x12J\n\x11GetProjectDetails\x12\x19.GetProjectDetailsRequest\x1a\x1a.GetProjectDetailsResponse\x12S\n\x14UpdateProjectDetails\x12\x1c.UpdateProjectDetailsRequest\x1a\x1d.UpdateProjectDetailsResponseb\x06proto3'
   ,
-  dependencies=[threads__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,threads__pb2.DESCRIPTOR,])
 
 
 
@@ -72,8 +73,8 @@ _PROJECT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='created_at', full_name='Project.created_at', index=5,
-      number=6, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -89,8 +90,8 @@ _PROJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=162,
+  serialized_start=67,
+  serialized_end=223,
 )
 
 
@@ -121,8 +122,8 @@ _GETPROJECTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=199,
+  serialized_start=225,
+  serialized_end=260,
 )
 
 
@@ -153,8 +154,8 @@ _GETPROJECTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=201,
-  serialized_end=250,
+  serialized_start=262,
+  serialized_end=311,
 )
 
 
@@ -185,8 +186,8 @@ _GETPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=252,
-  serialized_end=298,
+  serialized_start=313,
+  serialized_end=359,
 )
 
 
@@ -217,8 +218,8 @@ _GETPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=300,
-  serialized_end=354,
+  serialized_start=361,
+  serialized_end=415,
 )
 
 
@@ -249,8 +250,8 @@ _UPDATEPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=356,
-  serialized_end=412,
+  serialized_start=417,
+  serialized_end=473,
 )
 
 
@@ -274,11 +275,12 @@ _UPDATEPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=414,
-  serialized_end=444,
+  serialized_start=475,
+  serialized_end=505,
 )
 
 _PROJECT.fields_by_name['threads'].message_type = threads__pb2._THREAD
+_PROJECT.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETPROJECTSRESPONSE.fields_by_name['projects'].message_type = _PROJECT
 _GETPROJECTDETAILSRESPONSE.fields_by_name['project'].message_type = _PROJECT
 _UPDATEPROJECTDETAILSREQUEST.fields_by_name['project'].message_type = _PROJECT
@@ -349,8 +351,8 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=447,
-  serialized_end=683,
+  serialized_start=508,
+  serialized_end=744,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjects',
