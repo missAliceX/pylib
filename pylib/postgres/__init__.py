@@ -11,13 +11,14 @@ class Postgres:
 
     @classmethod
     def connect(cls, cfg):
-        cls.pool = SimpleConnectionPool(
-            1, 20,
-            host=cfg["postgres_host"],
-            database=cfg["postgres_db"],
-            user=cfg["postgres_user"],
-            password=cfg["postgres_password"]
-        )
+        if cls.pool is None:
+            cls.pool = SimpleConnectionPool(
+                1, 20,
+                host=cfg["postgres_host"],
+                database=cfg["postgres_db"],
+                user=cfg["postgres_user"],
+                password=cfg["postgres_password"]
+            )
 
     @classmethod
     @contextmanager
