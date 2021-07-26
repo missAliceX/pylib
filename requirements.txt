@@ -1,4 +1,4 @@
 psycopg2==2.9.1
 protobuf==3.17.3
 sanic==21.6.0
-grpcio-tools==1.33.2
+grpcio-tools==1.39.0
