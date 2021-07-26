@@ -16,5 +16,5 @@ class GRPCService(Service):
     def start(self):
         self.server.add_insecure_port("[::]:9090")
         self.server.start()
-        log.info(f"started grpc service: {self.name}")
+        log.info(f"Started gRPC service "{self.name}" on :9090")
         self.server.wait_for_termination()

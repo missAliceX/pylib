@@ -21,7 +21,7 @@ class Postgres:
                 user=cfg["postgres_user"],
                 password=cfg["postgres_password"]
             )
-            log.info("connected to Postgres pool")
+            log.info("Connected to Postgres pool")
 
     @classmethod
     @contextmanager
@@ -33,17 +33,17 @@ class Postgres:
                 conn.commit()
         except Exception:
             conn.rollback()
-            log.error("executing query")
+            log.error("Executing query")
             raise
         finally:
             cls.pool.putconn(conn)
 
     @classmethod
     def migrate(cls, mode):
-        log.info(f"starting migrate {mode}...")
+        log.info(f"Starting to migrate {mode}...")
         with cls.repo() as cursor:
             for root, dirs, files in os.walk(migrations_dir):
                 for file in files:
                     if file.endswith(f'.{mode}.sql'):
                         cursor.execute(open(os.path.join(root, file)).read())
-        log.info(f"migrate {mode} complete.")
+        log.info(f"Migrate {mode} complete.")
