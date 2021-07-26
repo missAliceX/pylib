@@ -6,7 +6,7 @@ from grpc import experimental
 from . import projects_pb2 as projects__pb2
 
 
-class ProjectsSvcStub(object):
+class ProjectsServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -16,23 +16,23 @@ class ProjectsSvcStub(object):
             channel: A grpc.Channel.
         """
         self.GetProjects = channel.unary_unary(
-                '/ProjectsSvc/GetProjects',
+                '/ProjectsService/GetProjects',
                 request_serializer=projects__pb2.GetProjectsRequest.SerializeToString,
                 response_deserializer=projects__pb2.GetProjectsResponse.FromString,
                 )
         self.GetProjectDetails = channel.unary_unary(
-                '/ProjectsSvc/GetProjectDetails',
+                '/ProjectsService/GetProjectDetails',
                 request_serializer=projects__pb2.GetProjectDetailsRequest.SerializeToString,
                 response_deserializer=projects__pb2.GetProjectDetailsResponse.FromString,
                 )
         self.UpdateProjectDetails = channel.unary_unary(
-                '/ProjectsSvc/UpdateProjectDetails',
+                '/ProjectsService/UpdateProjectDetails',
                 request_serializer=projects__pb2.UpdateProjectDetailsRequest.SerializeToString,
                 response_deserializer=projects__pb2.UpdateProjectDetailsResponse.FromString,
                 )
 
 
-class ProjectsSvcServicer(object):
+class ProjectsServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetProjects(self, request, context):
@@ -54,7 +54,7 @@ class ProjectsSvcServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ProjectsSvcServicer_to_server(servicer, server):
+def add_ProjectsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetProjects': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProjects,
@@ -73,12 +73,12 @@ def add_ProjectsSvcServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ProjectsSvc', rpc_method_handlers)
+            'ProjectsService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ProjectsSvc(object):
+class ProjectsService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -92,7 +92,7 @@ class ProjectsSvc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsSvc/GetProjects',
+        return grpc.experimental.unary_unary(request, target, '/ProjectsService/GetProjects',
             projects__pb2.GetProjectsRequest.SerializeToString,
             projects__pb2.GetProjectsResponse.FromString,
             options, channel_credentials,
@@ -109,7 +109,7 @@ class ProjectsSvc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsSvc/GetProjectDetails',
+        return grpc.experimental.unary_unary(request, target, '/ProjectsService/GetProjectDetails',
             projects__pb2.GetProjectDetailsRequest.SerializeToString,
             projects__pb2.GetProjectDetailsResponse.FromString,
             options, channel_credentials,
@@ -126,7 +126,7 @@ class ProjectsSvc(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsSvc/UpdateProjectDetails',
+        return grpc.experimental.unary_unary(request, target, '/ProjectsService/UpdateProjectDetails',
             projects__pb2.UpdateProjectDetailsRequest.SerializeToString,
             projects__pb2.UpdateProjectDetailsResponse.FromString,
             options, channel_credentials,

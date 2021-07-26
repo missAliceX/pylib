@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "threads.proto";
 
-service ProjectsSvc {
+service ProjectsService {
     rpc GetProjects (GetProjectsRequest) returns (GetProjectsResponse);
     rpc GetProjectDetails (GetProjectDetailsRequest) returns (GetProjectDetailsResponse);
     rpc UpdateProjectDetails (UpdateProjectDetailsRequest) returns (UpdateProjectDetailsResponse);
