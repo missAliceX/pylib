@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 enum ThreadType {
     COMMENT = 0;
     SOLUTION = 1;
@@ -13,7 +11,7 @@ message Thread {
     uint64 project_id = 2;
     int32 thread_type = 3;
     string message = 4;
-    google.protobuf.Timestamp created_at = 5;
+    uint64 created_at = 5;
 }
 
 service ThreadsService {

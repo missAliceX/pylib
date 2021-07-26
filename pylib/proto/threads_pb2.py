@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +20,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rthreads.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"5\n\x19GetProjectThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"1\n\x15GetSubThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"D\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x18\n\x07threads\x18\x02 \x03(\x0b\x32\x07.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xdc\x01\n\x0eThreadsService\x12J\n\x11GetProjectThreads\x12\x19.GetProjectThreadsRequest\x1a\x1a.GetProjectThreadsResponse\x12>\n\rGetSubThreads\x12\x15.GetSubThreadsRequest\x1a\x16.GetSubThreadsResponse\x12>\n\rUpdateThreads\x12\x15.UpdateThreadsRequest\x1a\x16.UpdateThreadsResponseb\x06proto3'
-  ,
-  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  serialized_pb=b'\n\rthreads.proto\"i\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12\x12\n\ncreated_at\x18\x05 \x01(\x04\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"5\n\x19GetProjectThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"1\n\x15GetSubThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"D\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x18\n\x07threads\x18\x02 \x03(\x0b\x32\x07.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xdc\x01\n\x0eThreadsService\x12J\n\x11GetProjectThreads\x12\x19.GetProjectThreadsRequest\x1a\x1a.GetProjectThreadsResponse\x12>\n\rGetSubThreads\x12\x15.GetSubThreadsRequest\x1a\x16.GetSubThreadsResponse\x12>\n\rUpdateThreads\x12\x15.UpdateThreadsRequest\x1a\x16.UpdateThreadsResponseb\x06proto3'
+)
 
 _THREADTYPE = _descriptor.EnumDescriptor(
   name='ThreadType',
@@ -50,8 +48,8 @@ _THREADTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=528,
-  serialized_end=580,
+  serialized_start=466,
+  serialized_end=518,
 )
 _sym_db.RegisterEnumDescriptor(_THREADTYPE)
 
@@ -100,8 +98,8 @@ _THREAD = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='created_at', full_name='Thread.created_at', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -117,8 +115,8 @@ _THREAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=184,
+  serialized_start=17,
+  serialized_end=122,
 )
 
 
@@ -156,8 +154,8 @@ _GETPROJECTTHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=247,
+  serialized_start=124,
+  serialized_end=185,
 )
 
 
@@ -188,8 +186,8 @@ _GETPROJECTTHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=249,
-  serialized_end=302,
+  serialized_start=187,
+  serialized_end=240,
 )
 
 
@@ -234,8 +232,8 @@ _GETSUBTHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=304,
-  serialized_end=380,
+  serialized_start=242,
+  serialized_end=318,
 )
 
 
@@ -266,8 +264,8 @@ _GETSUBTHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=382,
-  serialized_end=431,
+  serialized_start=320,
+  serialized_end=369,
 )
 
 
@@ -305,8 +303,8 @@ _UPDATETHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=501,
+  serialized_start=371,
+  serialized_end=439,
 )
 
 
@@ -330,11 +328,10 @@ _UPDATETHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=503,
-  serialized_end=526,
+  serialized_start=441,
+  serialized_end=464,
 )
 
-_THREAD.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETPROJECTTHREADSRESPONSE.fields_by_name['threads'].message_type = _THREAD
 _GETSUBTHREADSRESPONSE.fields_by_name['threads'].message_type = _THREAD
 _UPDATETHREADSREQUEST.fields_by_name['threads'].message_type = _THREAD
@@ -406,8 +403,8 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=583,
-  serialized_end=803,
+  serialized_start=521,
+  serialized_end=741,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjectThreads',

@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
 import "threads.proto";
 
 service ProjectsService {
@@ -15,7 +14,7 @@ message Project {
     string tagline = 3;
     repeated Thread threads = 4;
     repeated string tags = 5;
-    google.protobuf.Timestamp created_at = 6;
+    uint64 created_at = 6;
 }
 
 message GetProjectsRequest {
