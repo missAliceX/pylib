@@ -2,8 +2,8 @@ from sanic import Sanic
 
 
 class HTTPService:
-    def __init__(self, routes):
-        self.app = Sanic()
+    def __init__(self, name, routes):
+        self.app = Sanic(name)
         self.register()
 
     def start(self):
