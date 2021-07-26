@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-package pylib.proto.projects;
-
 import "google/protobuf/timestamp.proto";
 import "threads.proto";
 
@@ -15,7 +13,7 @@ message Project {
     uint64 project_id = 1;
     string project_name = 2;
     string tagline = 3;
-    repeated pylib.proto.threads.Thread threads = 4;
+    repeated Thread threads = 4;
     repeated string tags = 5;
     google.protobuf.Timestamp created_at = 6;
 }

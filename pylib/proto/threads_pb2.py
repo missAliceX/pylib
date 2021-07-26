@@ -17,17 +17,17 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='threads.proto',
-  package='pylib.proto.threads',
+  package='',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rthreads.proto\x12\x13pylib.proto.threads\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"I\n\x19GetProjectThreadsResponse\x12,\n\x07threads\x18\x01 \x03(\x0b\x32\x1b.pylib.proto.threads.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"E\n\x15GetSubThreadsResponse\x12,\n\x07threads\x18\x01 \x03(\x0b\x32\x1b.pylib.proto.threads.Thread\"X\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12,\n\x07threads\x18\x02 \x03(\x0b\x32\x1b.pylib.proto.threads.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xd4\x02\n\x0eThreadsService\x12r\n\x11GetProjectThreads\x12-.pylib.proto.threads.GetProjectThreadsRequest\x1a..pylib.proto.threads.GetProjectThreadsResponse\x12\x66\n\rGetSubThreads\x12).pylib.proto.threads.GetSubThreadsRequest\x1a*.pylib.proto.threads.GetSubThreadsResponse\x12\x66\n\rUpdateThreads\x12).pylib.proto.threads.UpdateThreadsRequest\x1a*.pylib.proto.threads.UpdateThreadsResponseb\x06proto3'
+  serialized_pb=b'\n\rthreads.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"5\n\x19GetProjectThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"1\n\x15GetSubThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"D\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x18\n\x07threads\x18\x02 \x03(\x0b\x32\x07.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xdc\x01\n\x0eThreadsService\x12J\n\x11GetProjectThreads\x12\x19.GetProjectThreadsRequest\x1a\x1a.GetProjectThreadsResponse\x12>\n\rGetSubThreads\x12\x15.GetSubThreadsRequest\x1a\x16.GetSubThreadsResponse\x12>\n\rUpdateThreads\x12\x15.UpdateThreadsRequest\x1a\x16.UpdateThreadsResponseb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 _THREADTYPE = _descriptor.EnumDescriptor(
   name='ThreadType',
-  full_name='pylib.proto.threads.ThreadType',
+  full_name='ThreadType',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -50,8 +50,8 @@ _THREADTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=609,
-  serialized_end=661,
+  serialized_start=528,
+  serialized_end=580,
 )
 _sym_db.RegisterEnumDescriptor(_THREADTYPE)
 
@@ -64,42 +64,42 @@ PROBLEM = 2
 
 _THREAD = _descriptor.Descriptor(
   name='Thread',
-  full_name='pylib.proto.threads.Thread',
+  full_name='Thread',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='thread_id', full_name='pylib.proto.threads.Thread.thread_id', index=0,
+      name='thread_id', full_name='Thread.thread_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='pylib.proto.threads.Thread.project_id', index=1,
+      name='project_id', full_name='Thread.project_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='thread_type', full_name='pylib.proto.threads.Thread.thread_type', index=2,
+      name='thread_type', full_name='Thread.thread_type', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='message', full_name='pylib.proto.threads.Thread.message', index=3,
+      name='message', full_name='Thread.message', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='created_at', full_name='pylib.proto.threads.Thread.created_at', index=4,
+      name='created_at', full_name='Thread.created_at', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -117,28 +117,28 @@ _THREAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=72,
-  serialized_end=205,
+  serialized_start=51,
+  serialized_end=184,
 )
 
 
 _GETPROJECTTHREADSREQUEST = _descriptor.Descriptor(
   name='GetProjectThreadsRequest',
-  full_name='pylib.proto.threads.GetProjectThreadsRequest',
+  full_name='GetProjectThreadsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='pylib.proto.threads.GetProjectThreadsRequest.project_id', index=0,
+      name='project_id', full_name='GetProjectThreadsRequest.project_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='pylib.proto.threads.GetProjectThreadsRequest.limit', index=1,
+      name='limit', full_name='GetProjectThreadsRequest.limit', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -156,21 +156,21 @@ _GETPROJECTTHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=268,
+  serialized_start=186,
+  serialized_end=247,
 )
 
 
 _GETPROJECTTHREADSRESPONSE = _descriptor.Descriptor(
   name='GetProjectThreadsResponse',
-  full_name='pylib.proto.threads.GetProjectThreadsResponse',
+  full_name='GetProjectThreadsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='threads', full_name='pylib.proto.threads.GetProjectThreadsResponse.threads', index=0,
+      name='threads', full_name='GetProjectThreadsResponse.threads', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -188,35 +188,35 @@ _GETPROJECTTHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=270,
-  serialized_end=343,
+  serialized_start=249,
+  serialized_end=302,
 )
 
 
 _GETSUBTHREADSREQUEST = _descriptor.Descriptor(
   name='GetSubThreadsRequest',
-  full_name='pylib.proto.threads.GetSubThreadsRequest',
+  full_name='GetSubThreadsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='pylib.proto.threads.GetSubThreadsRequest.project_id', index=0,
+      name='project_id', full_name='GetSubThreadsRequest.project_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='thread_id', full_name='pylib.proto.threads.GetSubThreadsRequest.thread_id', index=1,
+      name='thread_id', full_name='GetSubThreadsRequest.thread_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='pylib.proto.threads.GetSubThreadsRequest.limit', index=2,
+      name='limit', full_name='GetSubThreadsRequest.limit', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -234,21 +234,21 @@ _GETSUBTHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=345,
-  serialized_end=421,
+  serialized_start=304,
+  serialized_end=380,
 )
 
 
 _GETSUBTHREADSRESPONSE = _descriptor.Descriptor(
   name='GetSubThreadsResponse',
-  full_name='pylib.proto.threads.GetSubThreadsResponse',
+  full_name='GetSubThreadsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='threads', full_name='pylib.proto.threads.GetSubThreadsResponse.threads', index=0,
+      name='threads', full_name='GetSubThreadsResponse.threads', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -266,28 +266,28 @@ _GETSUBTHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=423,
-  serialized_end=492,
+  serialized_start=382,
+  serialized_end=431,
 )
 
 
 _UPDATETHREADSREQUEST = _descriptor.Descriptor(
   name='UpdateThreadsRequest',
-  full_name='pylib.proto.threads.UpdateThreadsRequest',
+  full_name='UpdateThreadsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='pylib.proto.threads.UpdateThreadsRequest.project_id', index=0,
+      name='project_id', full_name='UpdateThreadsRequest.project_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='threads', full_name='pylib.proto.threads.UpdateThreadsRequest.threads', index=1,
+      name='threads', full_name='UpdateThreadsRequest.threads', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -305,14 +305,14 @@ _UPDATETHREADSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=582,
+  serialized_start=433,
+  serialized_end=501,
 )
 
 
 _UPDATETHREADSRESPONSE = _descriptor.Descriptor(
   name='UpdateThreadsResponse',
-  full_name='pylib.proto.threads.UpdateThreadsResponse',
+  full_name='UpdateThreadsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -330,8 +330,8 @@ _UPDATETHREADSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=607,
+  serialized_start=503,
+  serialized_end=526,
 )
 
 _THREAD.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -351,49 +351,49 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Thread = _reflection.GeneratedProtocolMessageType('Thread', (_message.Message,), {
   'DESCRIPTOR' : _THREAD,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.Thread)
+  # @@protoc_insertion_point(class_scope:Thread)
   })
 _sym_db.RegisterMessage(Thread)
 
 GetProjectThreadsRequest = _reflection.GeneratedProtocolMessageType('GetProjectThreadsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTTHREADSREQUEST,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.GetProjectThreadsRequest)
+  # @@protoc_insertion_point(class_scope:GetProjectThreadsRequest)
   })
 _sym_db.RegisterMessage(GetProjectThreadsRequest)
 
 GetProjectThreadsResponse = _reflection.GeneratedProtocolMessageType('GetProjectThreadsResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTTHREADSRESPONSE,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.GetProjectThreadsResponse)
+  # @@protoc_insertion_point(class_scope:GetProjectThreadsResponse)
   })
 _sym_db.RegisterMessage(GetProjectThreadsResponse)
 
 GetSubThreadsRequest = _reflection.GeneratedProtocolMessageType('GetSubThreadsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETSUBTHREADSREQUEST,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.GetSubThreadsRequest)
+  # @@protoc_insertion_point(class_scope:GetSubThreadsRequest)
   })
 _sym_db.RegisterMessage(GetSubThreadsRequest)
 
 GetSubThreadsResponse = _reflection.GeneratedProtocolMessageType('GetSubThreadsResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETSUBTHREADSRESPONSE,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.GetSubThreadsResponse)
+  # @@protoc_insertion_point(class_scope:GetSubThreadsResponse)
   })
 _sym_db.RegisterMessage(GetSubThreadsResponse)
 
 UpdateThreadsRequest = _reflection.GeneratedProtocolMessageType('UpdateThreadsRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATETHREADSREQUEST,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.UpdateThreadsRequest)
+  # @@protoc_insertion_point(class_scope:UpdateThreadsRequest)
   })
 _sym_db.RegisterMessage(UpdateThreadsRequest)
 
 UpdateThreadsResponse = _reflection.GeneratedProtocolMessageType('UpdateThreadsResponse', (_message.Message,), {
   'DESCRIPTOR' : _UPDATETHREADSRESPONSE,
   '__module__' : 'threads_pb2'
-  # @@protoc_insertion_point(class_scope:pylib.proto.threads.UpdateThreadsResponse)
+  # @@protoc_insertion_point(class_scope:UpdateThreadsResponse)
   })
 _sym_db.RegisterMessage(UpdateThreadsResponse)
 
@@ -401,17 +401,17 @@ _sym_db.RegisterMessage(UpdateThreadsResponse)
 
 _THREADSSERVICE = _descriptor.ServiceDescriptor(
   name='ThreadsService',
-  full_name='pylib.proto.threads.ThreadsService',
+  full_name='ThreadsService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=664,
-  serialized_end=1004,
+  serialized_start=583,
+  serialized_end=803,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjectThreads',
-    full_name='pylib.proto.threads.ThreadsService.GetProjectThreads',
+    full_name='ThreadsService.GetProjectThreads',
     index=0,
     containing_service=None,
     input_type=_GETPROJECTTHREADSREQUEST,
@@ -421,7 +421,7 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSubThreads',
-    full_name='pylib.proto.threads.ThreadsService.GetSubThreads',
+    full_name='ThreadsService.GetSubThreads',
     index=1,
     containing_service=None,
     input_type=_GETSUBTHREADSREQUEST,
@@ -431,7 +431,7 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateThreads',
-    full_name='pylib.proto.threads.ThreadsService.UpdateThreads',
+    full_name='ThreadsService.UpdateThreads',
     index=2,
     containing_service=None,
     input_type=_UPDATETHREADSREQUEST,
