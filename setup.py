@@ -12,6 +12,6 @@ setup(name='pylib',
       url='https://github.com/missAliceXia/pylib/',
       packages=find_packages(),
       package_data={
-          '': ['*.sql'],
+          '': ['**/*.sql'],
       },
       install_requires=requirements)
