@@ -73,6 +73,61 @@ def add_ThreadsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'threads.ThreadsService', rpc_method_handlers)
+            'ThreadsService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
+ # This class is part of an EXPERIMENTAL API.
+class ThreadsService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetProjectThreads(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetProjectThreads',
+            threads__pb2.GetProjectThreadsRequest.SerializeToString,
+            threads__pb2.GetProjectThreadsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSubThreads(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetSubThreads',
+            threads__pb2.GetSubThreadsRequest.SerializeToString,
+            threads__pb2.GetSubThreadsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateThreads(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ThreadsService/UpdateThreads',
+            threads__pb2.UpdateThreadsRequest.SerializeToString,
+            threads__pb2.UpdateThreadsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
