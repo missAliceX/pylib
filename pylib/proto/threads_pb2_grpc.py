@@ -15,17 +15,17 @@ class ThreadsServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetProjectThreads = channel.unary_unary(
-                '/ThreadsService/GetProjectThreads',
+                '/pylib.proto.threads.ThreadsService/GetProjectThreads',
                 request_serializer=threads__pb2.GetProjectThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.GetProjectThreadsResponse.FromString,
                 )
         self.GetSubThreads = channel.unary_unary(
-                '/ThreadsService/GetSubThreads',
+                '/pylib.proto.threads.ThreadsService/GetSubThreads',
                 request_serializer=threads__pb2.GetSubThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.GetSubThreadsResponse.FromString,
                 )
         self.UpdateThreads = channel.unary_unary(
-                '/ThreadsService/UpdateThreads',
+                '/pylib.proto.threads.ThreadsService/UpdateThreads',
                 request_serializer=threads__pb2.UpdateThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.UpdateThreadsResponse.FromString,
                 )
@@ -72,7 +72,7 @@ def add_ThreadsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ThreadsService', rpc_method_handlers)
+            'pylib.proto.threads.ThreadsService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetProjectThreads',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.threads.ThreadsService/GetProjectThreads',
             threads__pb2.GetProjectThreadsRequest.SerializeToString,
             threads__pb2.GetProjectThreadsResponse.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetSubThreads',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.threads.ThreadsService/GetSubThreads',
             threads__pb2.GetSubThreadsRequest.SerializeToString,
             threads__pb2.GetSubThreadsResponse.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/UpdateThreads',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.threads.ThreadsService/UpdateThreads',
             threads__pb2.UpdateThreadsRequest.SerializeToString,
             threads__pb2.UpdateThreadsResponse.FromString,
             options, channel_credentials,

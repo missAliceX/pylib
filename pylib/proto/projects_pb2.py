@@ -17,11 +17,11 @@ import threads_pb2 as threads__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='projects.proto',
-  package='',
+  package='pylib.proto.projects',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprojects.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\rthreads.proto\"\x9c\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12\x18\n\x07threads\x18\x04 \x03(\x0b\x32\x07.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"1\n\x13GetProjectsResponse\x12\x1a\n\x08projects\x18\x01 \x03(\x0b\x32\x08.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"6\n\x19GetProjectDetailsResponse\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"8\n\x1bUpdateProjectDetailsRequest\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xec\x01\n\x0fProjectsService\x12\x38\n\x0bGetProjects\x12\x13.GetProjectsRequest\x1a\x14.GetProjectsResponse\x12J\n\x11GetProjectDetails\x12\x19.GetProjectDetailsRequest\x1a\x1a.GetProjectDetailsResponse\x12S\n\x14UpdateProjectDetails\x12\x1c.UpdateProjectDetailsRequest\x1a\x1d.UpdateProjectDetailsResponseb\x06proto3'
+  serialized_pb=b'\n\x0eprojects.proto\x12\x14pylib.proto.projects\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\rthreads.proto\"\xb0\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12,\n\x07threads\x18\x04 \x03(\x0b\x32\x1b.pylib.proto.threads.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"F\n\x13GetProjectsResponse\x12/\n\x08projects\x18\x01 \x03(\x0b\x32\x1d.pylib.proto.projects.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"K\n\x19GetProjectDetailsResponse\x12.\n\x07project\x18\x01 \x01(\x0b\x32\x1d.pylib.proto.projects.Project\"M\n\x1bUpdateProjectDetailsRequest\x12.\n\x07project\x18\x01 \x01(\x0b\x32\x1d.pylib.proto.projects.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xea\x02\n\x0fProjectsService\x12\x62\n\x0bGetProjects\x12(.pylib.proto.projects.GetProjectsRequest\x1a).pylib.proto.projects.GetProjectsResponse\x12t\n\x11GetProjectDetails\x12..pylib.proto.projects.GetProjectDetailsRequest\x1a/.pylib.proto.projects.GetProjectDetailsResponse\x12}\n\x14UpdateProjectDetails\x12\x31.pylib.proto.projects.UpdateProjectDetailsRequest\x1a\x32.pylib.proto.projects.UpdateProjectDetailsResponseb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,threads__pb2.DESCRIPTOR,])
 
@@ -30,49 +30,49 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _PROJECT = _descriptor.Descriptor(
   name='Project',
-  full_name='Project',
+  full_name='pylib.proto.projects.Project',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='Project.project_id', index=0,
+      name='project_id', full_name='pylib.proto.projects.Project.project_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='project_name', full_name='Project.project_name', index=1,
+      name='project_name', full_name='pylib.proto.projects.Project.project_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tagline', full_name='Project.tagline', index=2,
+      name='tagline', full_name='pylib.proto.projects.Project.tagline', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='threads', full_name='Project.threads', index=3,
+      name='threads', full_name='pylib.proto.projects.Project.threads', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tags', full_name='Project.tags', index=4,
+      name='tags', full_name='pylib.proto.projects.Project.tags', index=4,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='created_at', full_name='Project.created_at', index=5,
+      name='created_at', full_name='pylib.proto.projects.Project.created_at', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -90,21 +90,21 @@ _PROJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=223,
+  serialized_start=89,
+  serialized_end=265,
 )
 
 
 _GETPROJECTSREQUEST = _descriptor.Descriptor(
   name='GetProjectsRequest',
-  full_name='GetProjectsRequest',
+  full_name='pylib.proto.projects.GetProjectsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='limit', full_name='GetProjectsRequest.limit', index=0,
+      name='limit', full_name='pylib.proto.projects.GetProjectsRequest.limit', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -122,21 +122,21 @@ _GETPROJECTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=225,
-  serialized_end=260,
+  serialized_start=267,
+  serialized_end=302,
 )
 
 
 _GETPROJECTSRESPONSE = _descriptor.Descriptor(
   name='GetProjectsResponse',
-  full_name='GetProjectsResponse',
+  full_name='pylib.proto.projects.GetProjectsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='projects', full_name='GetProjectsResponse.projects', index=0,
+      name='projects', full_name='pylib.proto.projects.GetProjectsResponse.projects', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -154,21 +154,21 @@ _GETPROJECTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=262,
-  serialized_end=311,
+  serialized_start=304,
+  serialized_end=374,
 )
 
 
 _GETPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   name='GetProjectDetailsRequest',
-  full_name='GetProjectDetailsRequest',
+  full_name='pylib.proto.projects.GetProjectDetailsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='GetProjectDetailsRequest.project_id', index=0,
+      name='project_id', full_name='pylib.proto.projects.GetProjectDetailsRequest.project_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -186,21 +186,21 @@ _GETPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=313,
-  serialized_end=359,
+  serialized_start=376,
+  serialized_end=422,
 )
 
 
 _GETPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   name='GetProjectDetailsResponse',
-  full_name='GetProjectDetailsResponse',
+  full_name='pylib.proto.projects.GetProjectDetailsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project', full_name='GetProjectDetailsResponse.project', index=0,
+      name='project', full_name='pylib.proto.projects.GetProjectDetailsResponse.project', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -218,21 +218,21 @@ _GETPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=361,
-  serialized_end=415,
+  serialized_start=424,
+  serialized_end=499,
 )
 
 
 _UPDATEPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   name='UpdateProjectDetailsRequest',
-  full_name='UpdateProjectDetailsRequest',
+  full_name='pylib.proto.projects.UpdateProjectDetailsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project', full_name='UpdateProjectDetailsRequest.project', index=0,
+      name='project', full_name='pylib.proto.projects.UpdateProjectDetailsRequest.project', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -250,14 +250,14 @@ _UPDATEPROJECTDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=417,
-  serialized_end=473,
+  serialized_start=501,
+  serialized_end=578,
 )
 
 
 _UPDATEPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   name='UpdateProjectDetailsResponse',
-  full_name='UpdateProjectDetailsResponse',
+  full_name='pylib.proto.projects.UpdateProjectDetailsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -275,8 +275,8 @@ _UPDATEPROJECTDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=475,
-  serialized_end=505,
+  serialized_start=580,
+  serialized_end=610,
 )
 
 _PROJECT.fields_by_name['threads'].message_type = threads__pb2._THREAD
@@ -296,49 +296,49 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Project = _reflection.GeneratedProtocolMessageType('Project', (_message.Message,), {
   'DESCRIPTOR' : _PROJECT,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:Project)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.Project)
   })
 _sym_db.RegisterMessage(Project)
 
 GetProjectsRequest = _reflection.GeneratedProtocolMessageType('GetProjectsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTSREQUEST,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:GetProjectsRequest)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.GetProjectsRequest)
   })
 _sym_db.RegisterMessage(GetProjectsRequest)
 
 GetProjectsResponse = _reflection.GeneratedProtocolMessageType('GetProjectsResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTSRESPONSE,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:GetProjectsResponse)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.GetProjectsResponse)
   })
 _sym_db.RegisterMessage(GetProjectsResponse)
 
 GetProjectDetailsRequest = _reflection.GeneratedProtocolMessageType('GetProjectDetailsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTDETAILSREQUEST,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:GetProjectDetailsRequest)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.GetProjectDetailsRequest)
   })
 _sym_db.RegisterMessage(GetProjectDetailsRequest)
 
 GetProjectDetailsResponse = _reflection.GeneratedProtocolMessageType('GetProjectDetailsResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETPROJECTDETAILSRESPONSE,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:GetProjectDetailsResponse)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.GetProjectDetailsResponse)
   })
 _sym_db.RegisterMessage(GetProjectDetailsResponse)
 
 UpdateProjectDetailsRequest = _reflection.GeneratedProtocolMessageType('UpdateProjectDetailsRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEPROJECTDETAILSREQUEST,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateProjectDetailsRequest)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.UpdateProjectDetailsRequest)
   })
 _sym_db.RegisterMessage(UpdateProjectDetailsRequest)
 
 UpdateProjectDetailsResponse = _reflection.GeneratedProtocolMessageType('UpdateProjectDetailsResponse', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEPROJECTDETAILSRESPONSE,
   '__module__' : 'projects_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateProjectDetailsResponse)
+  # @@protoc_insertion_point(class_scope:pylib.proto.projects.UpdateProjectDetailsResponse)
   })
 _sym_db.RegisterMessage(UpdateProjectDetailsResponse)
 
@@ -346,17 +346,17 @@ _sym_db.RegisterMessage(UpdateProjectDetailsResponse)
 
 _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   name='ProjectsService',
-  full_name='ProjectsService',
+  full_name='pylib.proto.projects.ProjectsService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=508,
-  serialized_end=744,
+  serialized_start=613,
+  serialized_end=975,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjects',
-    full_name='ProjectsService.GetProjects',
+    full_name='pylib.proto.projects.ProjectsService.GetProjects',
     index=0,
     containing_service=None,
     input_type=_GETPROJECTSREQUEST,
@@ -366,7 +366,7 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetProjectDetails',
-    full_name='ProjectsService.GetProjectDetails',
+    full_name='pylib.proto.projects.ProjectsService.GetProjectDetails',
     index=1,
     containing_service=None,
     input_type=_GETPROJECTDETAILSREQUEST,
@@ -376,7 +376,7 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateProjectDetails',
-    full_name='ProjectsService.UpdateProjectDetails',
+    full_name='pylib.proto.projects.ProjectsService.UpdateProjectDetails',
     index=2,
     containing_service=None,
     input_type=_UPDATEPROJECTDETAILSREQUEST,

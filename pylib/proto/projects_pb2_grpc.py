@@ -15,17 +15,17 @@ class ProjectsServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetProjects = channel.unary_unary(
-                '/ProjectsService/GetProjects',
+                '/pylib.proto.projects.ProjectsService/GetProjects',
                 request_serializer=projects__pb2.GetProjectsRequest.SerializeToString,
                 response_deserializer=projects__pb2.GetProjectsResponse.FromString,
                 )
         self.GetProjectDetails = channel.unary_unary(
-                '/ProjectsService/GetProjectDetails',
+                '/pylib.proto.projects.ProjectsService/GetProjectDetails',
                 request_serializer=projects__pb2.GetProjectDetailsRequest.SerializeToString,
                 response_deserializer=projects__pb2.GetProjectDetailsResponse.FromString,
                 )
         self.UpdateProjectDetails = channel.unary_unary(
-                '/ProjectsService/UpdateProjectDetails',
+                '/pylib.proto.projects.ProjectsService/UpdateProjectDetails',
                 request_serializer=projects__pb2.UpdateProjectDetailsRequest.SerializeToString,
                 response_deserializer=projects__pb2.UpdateProjectDetailsResponse.FromString,
                 )
@@ -72,7 +72,7 @@ def add_ProjectsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ProjectsService', rpc_method_handlers)
+            'pylib.proto.projects.ProjectsService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class ProjectsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsService/GetProjects',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.projects.ProjectsService/GetProjects',
             projects__pb2.GetProjectsRequest.SerializeToString,
             projects__pb2.GetProjectsResponse.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class ProjectsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsService/GetProjectDetails',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.projects.ProjectsService/GetProjectDetails',
             projects__pb2.GetProjectDetailsRequest.SerializeToString,
             projects__pb2.GetProjectDetailsResponse.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class ProjectsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProjectsService/UpdateProjectDetails',
+        return grpc.experimental.unary_unary(request, target, '/pylib.proto.projects.ProjectsService/UpdateProjectDetails',
             projects__pb2.UpdateProjectDetailsRequest.SerializeToString,
             projects__pb2.UpdateProjectDetailsResponse.FromString,
             options, channel_credentials,
