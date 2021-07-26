@@ -40,10 +40,11 @@ class Postgres:
 
     @classmethod
     def migrate(cls, mode):
-        log.info(f"Starting to migrate {mode}...")
+        log.info(f"Starting to migrate {mode} from {migrations_dir}...")
         with cls.repo() as cursor:
             for root, dirs, files in os.walk(migrations_dir):
                 for file in files:
                     if file.endswith(f'.{mode}.sql'):
+                        log.info(f"Migrating {file}")
                         cursor.execute(open(os.path.join(root, file)).read())
         log.info(f"Migrate {mode} complete.")
