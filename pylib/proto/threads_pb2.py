@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rthreads.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"5\n\x19GetProjectThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"1\n\x15GetSubThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"D\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x18\n\x07threads\x18\x02 \x03(\x0b\x32\x07.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xdc\x01\n\x0eThreadsService\x12J\n\x11GetProjectThreads\x12\x19.GetProjectThreadsRequest\x1a\x1a.GetProjectThreadsResponse\x12>\n\rGetSubThreads\x12\x15.GetSubThreadsRequest\x1a\x16.GetSubThreadsResponse\x12>\n\rUpdateThreads\x12\x15.UpdateThreadsRequest\x1a\x16.UpdateThreadsResponseb\x06proto3'
+  serialized_pb=b'\n\rthreads.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\x06Thread\x12\x11\n\tthread_id\x18\x01 \x01(\x04\x12\x12\n\nproject_id\x18\x02 \x01(\x04\x12\x13\n\x0bthread_type\x18\x03 \x01(\x05\x12\x0f\n\x07message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"=\n\x18GetProjectThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\r\n\x05limit\x18\x02 \x01(\x05\"5\n\x19GetProjectThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"L\n\x14GetSubThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x11\n\tthread_id\x18\x02 \x01(\x04\x12\r\n\x05limit\x18\x03 \x01(\x05\"1\n\x15GetSubThreadsResponse\x12\x18\n\x07threads\x18\x01 \x03(\x0b\x32\x07.Thread\"D\n\x14UpdateThreadsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x18\n\x07threads\x18\x02 \x03(\x0b\x32\x07.Thread\"\x17\n\x15UpdateThreadsResponse*4\n\nThreadType\x12\x0b\n\x07\x43OMMENT\x10\x00\x12\x0c\n\x08SOLUTION\x10\x01\x12\x0b\n\x07PROBLEM\x10\x02\x32\xd8\x01\n\nThreadsSvc\x12J\n\x11GetProjectThreads\x12\x19.GetProjectThreadsRequest\x1a\x1a.GetProjectThreadsResponse\x12>\n\rGetSubThreads\x12\x15.GetSubThreadsRequest\x1a\x16.GetSubThreadsResponse\x12>\n\rUpdateThreads\x12\x15.UpdateThreadsRequest\x1a\x16.UpdateThreadsResponseb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -399,19 +399,19 @@ _sym_db.RegisterMessage(UpdateThreadsResponse)
 
 
 
-_THREADSSERVICE = _descriptor.ServiceDescriptor(
-  name='ThreadsService',
-  full_name='ThreadsService',
+_THREADSSVC = _descriptor.ServiceDescriptor(
+  name='ThreadsSvc',
+  full_name='ThreadsSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=583,
-  serialized_end=803,
+  serialized_end=799,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjectThreads',
-    full_name='ThreadsService.GetProjectThreads',
+    full_name='ThreadsSvc.GetProjectThreads',
     index=0,
     containing_service=None,
     input_type=_GETPROJECTTHREADSREQUEST,
@@ -421,7 +421,7 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSubThreads',
-    full_name='ThreadsService.GetSubThreads',
+    full_name='ThreadsSvc.GetSubThreads',
     index=1,
     containing_service=None,
     input_type=_GETSUBTHREADSREQUEST,
@@ -431,7 +431,7 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateThreads',
-    full_name='ThreadsService.UpdateThreads',
+    full_name='ThreadsSvc.UpdateThreads',
     index=2,
     containing_service=None,
     input_type=_UPDATETHREADSREQUEST,
@@ -440,8 +440,8 @@ _THREADSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_THREADSSERVICE)
+_sym_db.RegisterServiceDescriptor(_THREADSSVC)
 
-DESCRIPTOR.services_by_name['ThreadsService'] = _THREADSSERVICE
+DESCRIPTOR.services_by_name['ThreadsSvc'] = _THREADSSVC
 
 # @@protoc_insertion_point(module_scope)

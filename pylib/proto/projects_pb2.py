@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprojects.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\rthreads.proto\"\x9c\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12\x18\n\x07threads\x18\x04 \x03(\x0b\x32\x07.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"1\n\x13GetProjectsResponse\x12\x1a\n\x08projects\x18\x01 \x03(\x0b\x32\x08.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"6\n\x19GetProjectDetailsResponse\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"8\n\x1bUpdateProjectDetailsRequest\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xec\x01\n\x0fProjectsService\x12\x38\n\x0bGetProjects\x12\x13.GetProjectsRequest\x1a\x14.GetProjectsResponse\x12J\n\x11GetProjectDetails\x12\x19.GetProjectDetailsRequest\x1a\x1a.GetProjectDetailsResponse\x12S\n\x14UpdateProjectDetails\x12\x1c.UpdateProjectDetailsRequest\x1a\x1d.UpdateProjectDetailsResponseb\x06proto3'
+  serialized_pb=b'\n\x0eprojects.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\rthreads.proto\"\x9c\x01\n\x07Project\x12\x12\n\nproject_id\x18\x01 \x01(\x04\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x0f\n\x07tagline\x18\x03 \x01(\t\x12\x18\n\x07threads\x18\x04 \x03(\x0b\x32\x07.Thread\x12\x0c\n\x04tags\x18\x05 \x03(\t\x12.\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"#\n\x12GetProjectsRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\"1\n\x13GetProjectsResponse\x12\x1a\n\x08projects\x18\x01 \x03(\x0b\x32\x08.Project\".\n\x18GetProjectDetailsRequest\x12\x12\n\nproject_id\x18\x01 \x01(\x04\"6\n\x19GetProjectDetailsResponse\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"8\n\x1bUpdateProjectDetailsRequest\x12\x19\n\x07project\x18\x01 \x01(\x0b\x32\x08.Project\"\x1e\n\x1cUpdateProjectDetailsResponse2\xe8\x01\n\x0bProjectsSvc\x12\x38\n\x0bGetProjects\x12\x13.GetProjectsRequest\x1a\x14.GetProjectsResponse\x12J\n\x11GetProjectDetails\x12\x19.GetProjectDetailsRequest\x1a\x1a.GetProjectDetailsResponse\x12S\n\x14UpdateProjectDetails\x12\x1c.UpdateProjectDetailsRequest\x1a\x1d.UpdateProjectDetailsResponseb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,threads__pb2.DESCRIPTOR,])
 
@@ -344,19 +344,19 @@ _sym_db.RegisterMessage(UpdateProjectDetailsResponse)
 
 
 
-_PROJECTSSERVICE = _descriptor.ServiceDescriptor(
-  name='ProjectsService',
-  full_name='ProjectsService',
+_PROJECTSSVC = _descriptor.ServiceDescriptor(
+  name='ProjectsSvc',
+  full_name='ProjectsSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=508,
-  serialized_end=744,
+  serialized_end=740,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetProjects',
-    full_name='ProjectsService.GetProjects',
+    full_name='ProjectsSvc.GetProjects',
     index=0,
     containing_service=None,
     input_type=_GETPROJECTSREQUEST,
@@ -366,7 +366,7 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetProjectDetails',
-    full_name='ProjectsService.GetProjectDetails',
+    full_name='ProjectsSvc.GetProjectDetails',
     index=1,
     containing_service=None,
     input_type=_GETPROJECTDETAILSREQUEST,
@@ -376,7 +376,7 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateProjectDetails',
-    full_name='ProjectsService.UpdateProjectDetails',
+    full_name='ProjectsSvc.UpdateProjectDetails',
     index=2,
     containing_service=None,
     input_type=_UPDATEPROJECTDETAILSREQUEST,
@@ -385,8 +385,8 @@ _PROJECTSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_PROJECTSSERVICE)
+_sym_db.RegisterServiceDescriptor(_PROJECTSSVC)
 
-DESCRIPTOR.services_by_name['ProjectsService'] = _PROJECTSSERVICE
+DESCRIPTOR.services_by_name['ProjectsSvc'] = _PROJECTSSVC
 
 # @@protoc_insertion_point(module_scope)

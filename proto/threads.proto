@@ -16,7 +16,7 @@ message Thread {
     google.protobuf.Timestamp created_at = 5;
 }
 
-service ThreadsService {
+service ThreadsSvc {
     rpc GetProjectThreads (GetProjectThreadsRequest) returns (GetProjectThreadsResponse);
     rpc GetSubThreads (GetSubThreadsRequest) returns (GetSubThreadsResponse);
     rpc UpdateThreads (UpdateThreadsRequest) returns (UpdateThreadsResponse);

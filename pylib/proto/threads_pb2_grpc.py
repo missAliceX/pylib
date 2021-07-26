@@ -6,7 +6,7 @@ from grpc import experimental
 from . import threads_pb2 as threads__pb2
 
 
-class ThreadsServiceStub(object):
+class ThreadsSvcStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -16,23 +16,23 @@ class ThreadsServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetProjectThreads = channel.unary_unary(
-                '/ThreadsService/GetProjectThreads',
+                '/ThreadsSvc/GetProjectThreads',
                 request_serializer=threads__pb2.GetProjectThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.GetProjectThreadsResponse.FromString,
                 )
         self.GetSubThreads = channel.unary_unary(
-                '/ThreadsService/GetSubThreads',
+                '/ThreadsSvc/GetSubThreads',
                 request_serializer=threads__pb2.GetSubThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.GetSubThreadsResponse.FromString,
                 )
         self.UpdateThreads = channel.unary_unary(
-                '/ThreadsService/UpdateThreads',
+                '/ThreadsSvc/UpdateThreads',
                 request_serializer=threads__pb2.UpdateThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.UpdateThreadsResponse.FromString,
                 )
 
 
-class ThreadsServiceServicer(object):
+class ThreadsSvcServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetProjectThreads(self, request, context):
@@ -54,7 +54,7 @@ class ThreadsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ThreadsServiceServicer_to_server(servicer, server):
+def add_ThreadsSvcServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetProjectThreads': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProjectThreads,
@@ -73,12 +73,12 @@ def add_ThreadsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ThreadsService', rpc_method_handlers)
+            'ThreadsSvc', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ThreadsService(object):
+class ThreadsSvc(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -92,7 +92,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetProjectThreads',
+        return grpc.experimental.unary_unary(request, target, '/ThreadsSvc/GetProjectThreads',
             threads__pb2.GetProjectThreadsRequest.SerializeToString,
             threads__pb2.GetProjectThreadsResponse.FromString,
             options, channel_credentials,
@@ -109,7 +109,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetSubThreads',
+        return grpc.experimental.unary_unary(request, target, '/ThreadsSvc/GetSubThreads',
             threads__pb2.GetSubThreadsRequest.SerializeToString,
             threads__pb2.GetSubThreadsResponse.FromString,
             options, channel_credentials,
@@ -126,7 +126,7 @@ class ThreadsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/UpdateThreads',
+        return grpc.experimental.unary_unary(request, target, '/ThreadsSvc/UpdateThreads',
             threads__pb2.UpdateThreadsRequest.SerializeToString,
             threads__pb2.UpdateThreadsResponse.FromString,
             options, channel_credentials,
