@@ -2,7 +2,7 @@ from sanic import Sanic
 
 
 class HTTPService:
-    def __init__(self, name, routes):
+    def __init__(self, name="demo"):
         self.app = Sanic(name)
         self.register()
 
