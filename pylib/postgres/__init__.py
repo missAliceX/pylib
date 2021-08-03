@@ -16,27 +16,28 @@ class Postgres:
     cfg = None
 
     @classmethod
-    def connect(cls, cfg):
-        if cls.pool is None:
-            cls.cfg = cfg
-            cls.pool = SimpleConnectionPool(
-                1, 20,
-                host=cfg["postgres_host"],
-                database=cfg["postgres_db"],
-                user=cfg["postgres_user"],
-                password=cfg["postgres_password"]
-            )
-            log.info("Connected to Postgres pool")
+    def create_pool(cls):
+        cls.pool = SimpleConnectionPool(
+            1, 20,
+            host=cls.cfg["postgres_host"],
+            database=cls.cfg["postgres_db"],
+            user=cls.fg["postgres_user"],
+            password=cls.cfg["postgres_password"]
+        )
+        log.info("Connected to Postgres pool")
 
     @classmethod
-    async def healthcheck(cls):
+    async def connect(cls, cfg):
+        cls.cfg = cfg
+        cls.create_pool()
         while True:
             try:
                 conn = cls.pool.getconn()
                 cur = conn.cursor()
                 cur.execute('SELECT 1')
             except psycopg2.OperationalError:
-                cls.connect(cls.cfg)
+                log.error("get connection from pool")
+                cls.create_pool()
             await asyncio.sleep(60)
 
     @classmethod
