@@ -6,7 +6,7 @@ import os
 log = logging.getLogger(__name__)
 
 class GRPCService:
-    def __init__(self, name, register, cfg={}):
+    def __init__(self, name, register):
         self.name = name
         self.server = grpc.server(ThreadPoolExecutor(max_workers=10))
         register(self, self.server)
