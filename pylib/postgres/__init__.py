@@ -2,6 +2,7 @@ from psycopg2.pool import SimpleConnectionPool
 from contextlib import contextmanager
 import os
 import logging
+import time
 from os import path
 
 log = logging.getLogger(__name__)
@@ -10,10 +11,12 @@ migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
 
 class Postgres:
     pool = None
+    cfg = None
 
     @classmethod
     def connect(cls, cfg):
         if cls.pool is None:
+            cls.cfg = cfg
             cls.pool = SimpleConnectionPool(
                 1, 20,
                 host=cfg["postgres_host"],
@@ -26,7 +29,15 @@ class Postgres:
     @classmethod
     @contextmanager
     def repo(cls, commit=True):
-        conn = cls.pool.getconn()
+        while True:
+            try:
+                conn = cls.pool.getconn()
+            except:
+                log.error("get connection from pool")
+                cls.pool = None
+                cls.connect(cls.cfg)
+                time.sleep(10)
+
         try:
             yield conn.cursor()
             if commit:
