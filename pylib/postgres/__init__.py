@@ -12,24 +12,20 @@ migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
 
 
 class Postgres:
-    pool = None
-    cfg = None
-
     @classmethod
-    def create_pool(cls):
+    def create_pool(cls, cfg):
         cls.pool = SimpleConnectionPool(
             1, 20,
-            host=cls.cfg["postgres_host"],
-            database=cls.cfg["postgres_db"],
-            user=cls.fg["postgres_user"],
-            password=cls.cfg["postgres_password"]
+            host=cfg["postgres_host"],
+            database=cfg["postgres_db"],
+            user=cfg["postgres_user"],
+            password=cfg["postgres_password"]
         )
         log.info("Connected to Postgres pool")
 
     @classmethod
     async def connect(cls, cfg):
-        cls.cfg = cfg
-        cls.create_pool()
+        cls.create_pool(cfg)
         while True:
             try:
                 conn = cls.pool.getconn()
@@ -37,14 +33,14 @@ class Postgres:
                 cur.execute('SELECT 1')
             except psycopg2.OperationalError:
                 log.error("get connection from pool")
-                cls.create_pool()
+                cls.create_pool(cfg)
             await asyncio.sleep(60)
 
     @classmethod
     @contextmanager
     def repo(cls, commit=True):
+        conn = cls.pool.getconn()
         try:
-            conn = cls.pool.getconn()
             yield conn.cursor()
             if commit:
                 conn.commit()
