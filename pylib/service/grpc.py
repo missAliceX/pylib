@@ -1,4 +1,3 @@
-from pylib.service import Service
 from concurrent.futures import ThreadPoolExecutor
 import grpc
 import logging
@@ -6,7 +5,7 @@ import os
 
 log = logging.getLogger(__name__)
 
-class GRPCService(Service):
+class GRPCService:
     def __init__(self, name, register, cfg={}):
         super().__init__(cfg)
         self.name = name

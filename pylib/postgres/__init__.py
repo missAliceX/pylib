@@ -1,8 +1,10 @@
+import psycopg2 
 from psycopg2.pool import SimpleConnectionPool
 from contextlib import contextmanager
 import os
 import logging
 import time
+import asyncio
 from os import path
 
 log = logging.getLogger(__name__)
@@ -27,19 +29,21 @@ class Postgres:
             log.info("Connected to Postgres pool")
 
     @classmethod
-    @contextmanager
-    def repo(cls, commit=True):
+    async def healthcheck(cls):
         while True:
             try:
                 conn = cls.pool.getconn()
-                break
-            except:
-                log.error("get connection from pool")
-                cls.pool = None
+                cur = conn.cursor()
+                cur.execute('SELECT 1')
+            except psycopg2.OperationalError:
                 cls.connect(cls.cfg)
-                time.sleep(10)
+            await asyncio.sleep(60)
 
+    @classmethod
+    @contextmanager
+    def repo(cls, commit=True):
         try:
+            conn = cls.pool.getconn()
             yield conn.cursor()
             if commit:
                 conn.commit()

@@ -1,8 +1,7 @@
-from pylib.service import Service
 from sanic import Sanic
 
 
-class HTTPService(Service):
+class HTTPService:
     def __init__(self, name="demo", cfg={}):
         super().__init__(cfg)
         self.app = Sanic(name)
