@@ -32,6 +32,7 @@ class Postgres:
         while True:
             try:
                 conn = cls.pool.getconn()
+                break
             except:
                 log.error("get connection from pool")
                 cls.pool = None
