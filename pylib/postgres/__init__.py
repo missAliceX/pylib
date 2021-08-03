@@ -6,14 +6,18 @@ import logging
 import time
 import asyncio
 from os import path
+import threading
 
 log = logging.getLogger(__name__)
 migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
 
 
 class Postgres:
+    pool = None
+    
     @classmethod
-    def create_pool(cls, cfg):
+    def setup(cls, cfg):
+        cls.cfg = cfg
         cls.pool = SimpleConnectionPool(
             1, 20,
             host=cfg["postgres_host"],
@@ -24,8 +28,9 @@ class Postgres:
         log.info("Connected to Postgres pool")
 
     @classmethod
-    async def connect(cls, cfg):
-        cls.create_pool(cfg)
+    async def connect(cls):
+        if cls.pool is None:
+            raise Exception("must call setup() first")
         while True:
             try:
                 conn = cls.pool.getconn()
@@ -33,7 +38,7 @@ class Postgres:
                 cur.execute('SELECT 1')
             except psycopg2.OperationalError:
                 log.error("get connection from pool")
-                cls.create_pool(cfg)
+                cls.setup(cls.cfg)
             await asyncio.sleep(60)
 
     @classmethod
