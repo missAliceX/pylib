@@ -49,7 +49,7 @@ class Postgres:
     def connect(cls):
         def _run_non_blocking(_cls):
             while True:
-                cls._connect()
+                _cls._connect()
                 time.sleep(RETRY_DELAY)
         Thread(target=_run_non_blocking, args=(cls,)).start()
         
