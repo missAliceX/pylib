@@ -20,10 +20,10 @@ class Postgres:
         cls.cfg = cfg
         cls.pool = SimpleConnectionPool(
             1, 20,
-            host=cfg["postgres_host"],
-            database=cfg["postgres_db"],
-            user=cfg["postgres_user"],
-            password=cfg["postgres_password"]
+            host=cfg["POSTGRES_HOST"],
+            database=cfg["POSTGRES_DB"],
+            user=cfg["POSTGRES_USER"],
+            password=cfg["POSTGRES_PASSWORD"]
         )
         log.info("Connected to Postgres pool")
 
