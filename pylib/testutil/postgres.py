@@ -11,6 +11,13 @@ def run():
         "POSTGRES_PASSWORD": "test-password",
         "POSTGRES_DB": "test-db"
     }
+
+    try:
+        container = client.containers.get("test-postgres")
+        container.remove(v=True, force=True)
+    except docker.errors.NotFound:
+        pass
+    
     container = client.containers.run(
         "postgres:latest",
         name="test-postgres",
