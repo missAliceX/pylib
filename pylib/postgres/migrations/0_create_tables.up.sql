@@ -4,8 +4,6 @@ EXCEPTION
     WHEN duplicate_object THEN null;
 END $$;
 
-
-
 CREATE TABLE IF NOT EXISTS projects (
     project_id serial PRIMARY KEY,
     project_name VARCHAR ( 80 ) UNIQUE NOT NULL,
