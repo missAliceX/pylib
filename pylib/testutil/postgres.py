@@ -3,10 +3,6 @@ import docker
 import time
 
 
-def clear_table(table_name):
-    with Postgres.repo() as cursor:
-        cursor.execute(f"truncate {table_name}")
-
 def run():
     client = docker.from_env()
     test_cfg = {
@@ -34,3 +30,6 @@ def run():
 
 def stop(container):
     container.remove(v=True, force=True)
+
+def repo():
+    return Postgres.repo()
