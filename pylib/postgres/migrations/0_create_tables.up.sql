@@ -1,5 +1,5 @@
 DO $$ BEGIN
-    CREATE TYPE thread_type AS ENUM ('comment', 'solution', 'problem');
+    CREATE TYPE thread_type AS ENUM ('COMMENT', 'SOLUTION', 'PROBLEM');
 EXCEPTION
     WHEN duplicate_object THEN null;
 END $$;
