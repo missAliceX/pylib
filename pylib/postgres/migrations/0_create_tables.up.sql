@@ -21,6 +21,5 @@ CREATE TABLE IF NOT EXISTS threads (
 CREATE TABLE IF NOT EXISTS tags (
     tag_id bigserial PRIMARY KEY,
     project_id integer REFERENCES projects,
-    thread_id integer REFERENCES threads,
     tag VARCHAR( 50 ) NOT NULL
 );
