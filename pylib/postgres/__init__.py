@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
 RETRY_DELAY = 60
 
-class Postgres:
+class PostgresClient:
     pool = None
     stopped = False
     
