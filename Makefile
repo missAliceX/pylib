@@ -6,7 +6,7 @@ POSTGRES_PASSWORD=admin
 POSTGRES_DB=maindb
 
 install:
-	pip-upgrade
+	pip-upgrade *.txt
 	pip install -U -r requirements.txt
 
 generate:

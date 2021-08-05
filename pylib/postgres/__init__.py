@@ -1,5 +1,5 @@
 import psycopg2 
-from psycopg2.pool import SimpleConnectionPool
+from psycopg2.pool import ThreadedConnectionPool
 from contextlib import contextmanager
 import os
 import logging
@@ -14,11 +14,12 @@ RETRY_DELAY = 60
 
 class Postgres:
     pool = None
+    stopped = False`
     
     @classmethod
     def setup(cls, cfg):
         cls.cfg = cfg
-        cls.pool = SimpleConnectionPool(
+        cls.pool = ThreadedConnectionPool(
             1, 20,
             host=cfg["POSTGRES_HOST"],
             database=cfg["POSTGRES_DB"],
@@ -35,24 +36,27 @@ class Postgres:
             conn = cls.pool.getconn()
             cur = conn.cursor()
             cur.execute('SELECT 1')
-        except psycopg2.OperationalError:
+        except (psycopg2.DatabaseError, psycopg2.OperationalError) as error:
             log.error("get connection from pool")
             cls.setup(cls.cfg)
 
     @classmethod
     async def connect_async(cls):
-        while True:
+        while not cls.stopped:
             cls._connect()
             await asyncio.sleep(RETRY_DELAY)
 
     @classmethod
     def connect(cls):
         def _run_non_blocking(_cls):
-            while True:
+            while not cls.stopped:
                 _cls._connect()
                 time.sleep(RETRY_DELAY)
         Thread(target=_run_non_blocking, args=(cls,)).start()
         
+    @classmethod
+    def stop(cls):
+        cls.stopped = True
 
     @classmethod
     @contextmanager
