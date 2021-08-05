@@ -1,4 +1,4 @@
-from pylib.postgres import Postgres
+from pylib.postgres import PostgresClient
 import docker
 import time
 
@@ -28,8 +28,8 @@ def run():
     )
     while True:
         try:
-            Postgres.setup(test_cfg)
-            Postgres.migrate("up")
+            PostgresClient.setup(test_cfg)
+            PostgresClient.migrate("up")
             break
         except Exception:
             time.sleep(1)
@@ -39,4 +39,4 @@ def stop(container):
     container.remove(v=True, force=True)
 
 def repo():
-    return Postgres.repo()
+    return PostgresClient.repo()
