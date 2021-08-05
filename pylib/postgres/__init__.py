@@ -14,7 +14,7 @@ RETRY_DELAY = 60
 
 class Postgres:
     pool = None
-    stopped = False`
+    stopped = False
     
     @classmethod
     def setup(cls, cfg):
