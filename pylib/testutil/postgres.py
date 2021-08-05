@@ -1,6 +1,7 @@
-from pylib.postgres import PostgresClient
 import docker
 import time
+
+from pylib.postgres import PostgresClient
 
 
 def run():
@@ -38,11 +39,16 @@ def run():
             time.sleep(1)
     return test_cfg, container
 
-def stop(container):
+def stop():
     """
     postgres.stop stops and removes the given container
     """
-    container.remove(v=True, force=True)
+    client = docker.from_env()
+    try:
+        container = client.containers.get("test-postgres")
+        container.remove(v=True, force=True)
+    except docker.errors.NotFound:
+        pass
 
 def repo():
     """

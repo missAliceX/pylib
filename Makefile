@@ -1,6 +1,11 @@
+test:
+	coverage run -m pytest
+	coverage report -m *.py pylib/**/*.py
+
 install:
 	pip-upgrade *.txt
-	pip install -U -r requirements.txt
+	pip install -r requirements.txt
+	pip install -r requirements.dev.txt
 
 generate:
 	python -m grpc_tools.protoc -I proto \
