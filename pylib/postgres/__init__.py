@@ -4,59 +4,38 @@ from contextlib import contextmanager
 import os
 import logging
 import time
-import asyncio
+import math
 from os import path
-from threading import Thread
 
 log = logging.getLogger(__name__)
 migrations_dir = path.join(path.dirname(path.realpath(__file__)), 'migrations')
-RETRY_DELAY = 60
 
 class PostgresClient:
     pool = None
-    stopped = False
-    
-    @classmethod
-    def setup(cls, cfg):
-        cls.cfg = cfg
-        cls.pool = ThreadedConnectionPool(
-            1, 20,
-            host=cfg["POSTGRES_HOST"],
-            database=cfg["POSTGRES_DB"],
-            user=cfg["POSTGRES_USER"],
-            password=cfg["POSTGRES_PASSWORD"]
-        )
-        log.info("Connected to Postgres pool")
 
     @classmethod
-    def _connect(cls):
-        if cls.pool is None:
-            raise Exception("must call setup() first")
-        try:
-            conn = cls.pool.getconn()
-            cur = conn.cursor()
-            cur.execute('SELECT 1')
-        except (psycopg2.DatabaseError, psycopg2.OperationalError) as error:
-            log.error("get connection from pool")
-            cls.setup(cls.cfg)
+    def connect(cls, cfg):
+        for retry_count in range(5):
+            cls.pool = ThreadedConnectionPool(
+                1, 20,
+                host=cfg["POSTGRES_HOST"],
+                database=cfg["POSTGRES_DB"],
+                user=cfg["POSTGRES_USER"],
+                password=cfg["POSTGRES_PASSWORD"]
+            )
+            try:
+                conn = cls.pool.getconn()
+                cur = conn.cursor()
+                cur.execute('SELECT 1')
+                log.info("connected to postgres")
+                return
+            except (psycopg2.DatabaseError, psycopg2.OperationalError) as error:
+                log.error("connect to postgres")
+                cls.setup(cls.cfg)
+                retry_count += 0
+                time.sleep(int(math.exp(retry_count)))
 
-    @classmethod
-    async def connect_async(cls):
-        while not cls.stopped:
-            cls._connect()
-            await asyncio.sleep(RETRY_DELAY)
-
-    @classmethod
-    def connect(cls):
-        def _run_non_blocking(_cls):
-            while not cls.stopped:
-                _cls._connect()
-                time.sleep(RETRY_DELAY)
-        Thread(target=_run_non_blocking, args=(cls,)).start()
-        
-    @classmethod
-    def stop(cls):
-        cls.stopped = True
+        raise Exception("unable to connect to postgres")
 
     @classmethod
     @contextmanager
