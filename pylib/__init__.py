@@ -1,6 +1,7 @@
 import logging
 import os
 
+# This prevents sanic from logging twice when we mix in our custom logs
 logging.getLogger("sanic.access").propagate = False
 logging.getLogger("sanic.root").propagate = False
 logging.basicConfig(

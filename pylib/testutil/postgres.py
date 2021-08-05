@@ -4,6 +4,9 @@ import time
 
 
 def run():
+    """
+    postgres.run starts a Postgres Docker container in the background and returns the test configs
+    """
     client = docker.from_env()
     test_cfg = {
         "POSTGRES_HOST": "localhost",
@@ -36,7 +39,13 @@ def run():
     return test_cfg, container
 
 def stop(container):
+    """
+    postgres.stop stops and removes the given container
+    """
     container.remove(v=True, force=True)
 
 def repo():
+    """
+    postgres.repo returns the cursor context for the Docker container
+    """
     return PostgresClient.repo()

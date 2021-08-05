@@ -1,10 +1,3 @@
-.EXPORT_ALL_VARIABLES:
-
-POSTGRES_HOST=localhost
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin
-POSTGRES_DB=maindb
-
 install:
 	pip-upgrade *.txt
 	pip install -U -r requirements.txt
