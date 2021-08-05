@@ -28,7 +28,7 @@ def run():
     )
     while True:
         try:
-            PostgresClient.setup(test_cfg)
+            PostgresClient.connect(test_cfg)
             PostgresClient.migrate("up")
             break
         except Exception:
