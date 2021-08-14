@@ -11,7 +11,7 @@ class GRPCService:
 
         # Creates a gRPC server with workers
         self.server = grpc.server(ThreadPoolExecutor(max_workers=10))
-        self.server.add_insecure_port("[::]:50051")
+        self.server.add_insecure_port("[::]:9090")
 
         # Adds the gRPC handlers and routes to the server
         add_servicer_to_server(self, self.server)
@@ -19,5 +19,5 @@ class GRPCService:
     def start(self):
         # Starts the server
         self.server.start()
-        log.info(f"Started gRPC service \"{self.name}\" on :50051")
+        log.info(f"Started gRPC service \"{self.name}\" on :9090")
         self.server.wait_for_termination()
