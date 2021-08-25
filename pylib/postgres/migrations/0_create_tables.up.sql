@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS projects (
 
 CREATE TABLE IF NOT EXISTS threads (
     thread_id bigserial PRIMARY KEY,
-    project_id integer REFERENCES projects NOT NULL ON DELETE CASCADE,
+    project_id integer REFERENCES projects NOT NULL,
     thread_type thread_type NOT NULL,
     message text NOT NULL
 );
