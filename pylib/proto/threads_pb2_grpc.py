@@ -19,11 +19,6 @@ class ThreadsServiceStub(object):
                 request_serializer=threads__pb2.GetProjectThreadsRequest.SerializeToString,
                 response_deserializer=threads__pb2.GetProjectThreadsResponse.FromString,
                 )
-        self.GetSubThreads = channel.unary_unary(
-                '/ThreadsService/GetSubThreads',
-                request_serializer=threads__pb2.GetSubThreadsRequest.SerializeToString,
-                response_deserializer=threads__pb2.GetSubThreadsResponse.FromString,
-                )
         self.UpdateThreads = channel.unary_unary(
                 '/ThreadsService/UpdateThreads',
                 request_serializer=threads__pb2.UpdateThreadsRequest.SerializeToString,
@@ -35,12 +30,6 @@ class ThreadsServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetProjectThreads(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSubThreads(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -59,11 +48,6 @@ def add_ThreadsServiceServicer_to_server(servicer, server):
                     servicer.GetProjectThreads,
                     request_deserializer=threads__pb2.GetProjectThreadsRequest.FromString,
                     response_serializer=threads__pb2.GetProjectThreadsResponse.SerializeToString,
-            ),
-            'GetSubThreads': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSubThreads,
-                    request_deserializer=threads__pb2.GetSubThreadsRequest.FromString,
-                    response_serializer=threads__pb2.GetSubThreadsResponse.SerializeToString,
             ),
             'UpdateThreads': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateThreads,
@@ -94,23 +78,6 @@ class ThreadsService(object):
         return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetProjectThreads',
             threads__pb2.GetProjectThreadsRequest.SerializeToString,
             threads__pb2.GetProjectThreadsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetSubThreads(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ThreadsService/GetSubThreads',
-            threads__pb2.GetSubThreadsRequest.SerializeToString,
-            threads__pb2.GetSubThreadsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -18,7 +18,6 @@ message Thread {
 
 service ThreadsService {
     rpc GetProjectThreads (GetProjectThreadsRequest) returns (GetProjectThreadsResponse);
-    rpc GetSubThreads (GetSubThreadsRequest) returns (GetSubThreadsResponse);
     rpc UpdateThreads (UpdateThreadsRequest) returns (UpdateThreadsResponse);
 }
 
@@ -28,16 +27,6 @@ message GetProjectThreadsRequest {
 }
 
 message GetProjectThreadsResponse {
-    repeated Thread threads = 1;
-}
-
-message GetSubThreadsRequest {
-    uint64 project_id = 1;
-    uint64 thread_id = 2;
-    int32 limit = 3;
-}
-
-message GetSubThreadsResponse {
     repeated Thread threads = 1;
 }
 
